@@ -50,6 +50,25 @@ exports.addVehicule = (req, res, next) => {
 
 };
 
+//Put (update)
+exports.apdateVehicule = (req, res, next) => {
+    const id = req.params.id;
+    const nom = req.body.nom;
+    const marque = req.body.marque;
+    const prix = req.body.prix;
+
+    pool.query("UPDATE vehicules SET nom=$1, marque=$2, prix=$3 WHERE id=$4", [nom, marque, prix, id], (err, vehicule) => {
+        if (err) {
+            console.log(err);
+            res.status(404).json({message: 'Hey, not found'});
+        }else {
+
+            res.send(vehicule.rows);
+        }
+    })
+
+};
+
 
 
 
