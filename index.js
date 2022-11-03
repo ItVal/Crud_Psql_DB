@@ -11,6 +11,7 @@ app.use(express.json());
 app.get('/', controlleur.getAllVehicules);
 app.get('/:id', controlleur.getOneVehicule);
 app.post('/add', controlleur.addVehicule);
+app.put('/edit/:id', controlleur.apdateVehicule);
 
 
 
