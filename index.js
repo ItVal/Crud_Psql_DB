@@ -3,10 +3,16 @@ const app = express();
 const PORT = 7800;
 
 const controlleur = require('./Controllers/controlleur.route')
+app.use(express.urlencoded({extended:false}));
 
 app.use(express.json());
 
-app.get('/', controlleur.getVehicule);
+
+app.get('/', controlleur.getAllVehicules);
+app.get('/:id', controlleur.getOneVehicule);
+app.post('/add', controlleur.addVehicule);
+
+
 
 
 
