@@ -2,11 +2,11 @@ const express = require('express');
 const app = express();
 const PORT = 7800;
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-})
+const controlleur = require('./Controllers/controlleur.route')
 
+app.use(express.json());
 
+app.get('/', controlleur.getVehicule);
 
 
 
